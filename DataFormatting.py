@@ -1,5 +1,6 @@
 import numpy as np
-from sklearn.datasets.base import Bunch
+from sklearn import datasets
+from sklearn.utils import Bunch
 import csv
 import pandas
 
