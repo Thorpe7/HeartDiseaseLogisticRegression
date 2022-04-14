@@ -1,5 +1,5 @@
 plotnine
 pandas
 numpy
-LogitsticRegression.py
-DataFormatting.py
+scipy
+scikit-learn
