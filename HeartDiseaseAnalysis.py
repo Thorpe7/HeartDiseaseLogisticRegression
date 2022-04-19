@@ -119,8 +119,32 @@ modelZ_prediction = modelZ_output.predict(testingXZ)
 modelZAccuracy = np.sum(testingYZ==modelZ_prediction) / len(testingYZ)
 print("Logistic Regression model accuracy is: ", str(modelZAccuracy)) # Logistic Regression model accuracy is:  0.76
 
+# Output the accuracy predictions to txt file
+dir_path = os.getcwd()
+output_dir = "Output"
+output_path = os.path.join(dir_path,output_dir)
+os.mkdir(output_path)
+print(output_path)
 
+file = open(os.path.join(output_path,"modelPredictions.txt"), 'w')
+file.write("Logistic Regression model 1 accuracy is: " + str(modelAccuracy) + '\n')
+file.write("Logistic Regression model 2 accuracy is: " + str(model2Accuracy) + '\n')
+file.write("Logistic Regression final model accuracy is: " + str(final_model_Accuracy) + '\n')
+file.write("Logistic Regression model accuracy is: " + str(modelZAccuracy))
+file.close()
 
+# Save the prediction and ground truth vectors to csv
+df = pandas.DataFrame({
+    "True M1" : testingY,
+    "Pred M1" : model_prediction,
+    "True M2": testingY2, 
+    "Pred M2": model2_prediction,
+    "True Mf": testingYf, 
+    "Pred Mf": final_model_prediction, 
+    "True Mz": testingYZ, 
+    "Pred Mz": modelZ_prediction})
+
+df.to_csv(os.path.join(output_path,"trueVpred.csv"), index=False)
 
 
 
