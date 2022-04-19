@@ -12,4 +12,4 @@ COPY HeartDiseaseAnalysis.py .
 RUN pip install -r requirements.txt
 
 
-CMD ["python", "./HeartDiseaseAnalysis.py"]
+CMD ["python", "HeartDiseaseAnalysis.py"]
